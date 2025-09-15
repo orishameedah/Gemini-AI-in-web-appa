@@ -1,0 +1,97 @@
+body {
+    background-color: rgb(18, 18, 18);
+    margin: 0;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 60px;
+    font-family: "Roboto Condensed", sans-serif;
+
+    &.loading {
+        main {
+            display: none;
+        }
+
+        .loader {
+            display: block;
+        }
+    }
+
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    display: none;
+    --d: 22px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    color: #25b09b;
+    box-shadow:
+        calc(1*var(--d)) calc(0*var(--d)) 0 0,
+        calc(0.707*var(--d)) calc(0.707*var(--d)) 0 1px,
+        calc(0*var(--d)) calc(1*var(--d)) 0 2px,
+        calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+        calc(-1*var(--d)) calc(0*var(--d)) 0 4px,
+        calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+        calc(0*var(--d)) calc(-1*var(--d)) 0 6px;
+    animation: l27 1s infinite steps(8);
+}
+
+@keyframes l27 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+p {
+    color: greenyellow;
+    font-size: 22px;
+}
+
+h1 {
+    display: none;
+    ;
+    font-size: 40px;
+}
+
+/* we are trying to hide the categories name after the content is loaded for better visual */
+main {
+    &.done {
+
+        /* HTML: <main class="done"> */
+        h1 {
+            display: block;
+        }
+
+        .categories {
+            display: none;
+        }
+    }
+}
+
+.categories {
+    button {
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        padding: 6px 12px;
+        margin: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.5s;
+        border-radius: 40px;
+
+        &:hover {
+            border: 1px solid greenyellow;
+            color: greenyellow;
+        }
+    }
+
+}

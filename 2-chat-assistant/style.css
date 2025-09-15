@@ -1,0 +1,185 @@
+:root {
+    --grey: #e2d7d7;
+    --blue: #3d88f9;
+    --black: #1a1a1a;
+}
+
+* {
+    font-family: "Raleway", sans-serif;
+}
+
+body.chat-open {
+    .chat-window {
+        display: flex;
+        /*this will make the chat open when we click the chat button*/
+    }
+}
+
+.chat-button {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    z-index: 998;
+    background-color: var(--black);
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        width: 40px;
+    }
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}
+
+.chat-window {
+
+    /* font-family: Arial, Helvetica, sans-serif; */
+    /*the chat will not open unless it was opened clicking the chat button*/
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 999;
+    bottom: 60px;
+    right: 20px;
+    height: 500px;
+    width: 360px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-between;
+
+    .close {
+        border: none;
+        padding: 8px 0;
+        background-color: var(--black);
+        color: white;
+        border-radius: 20px 20px 0 0;
+        cursor: pointer;
+    }
+
+    .chat {
+        /* background-color: bisque; */
+        /* Takes up remaining space*/
+        flex: 1;
+        padding: 0 8px;
+        overflow-y: scroll;
+
+        /* Adding css to all the p in the chat container */
+        p {
+            border-radius: 20px;
+            width: 80%;
+            margin: 8px 0;
+            font-size: 16px;
+            padding: 16px;
+
+        }
+
+        /*css for messages sent by the system */
+        div.model {
+
+            p {
+                background-color: var(--grey);
+            }
+        }
+
+        /*css for user chat sent to the model */
+
+        div.user {
+            display: flex;
+            justify-content: flex-end;
+
+            p {
+                background-color: var(--blue);
+                color: white;
+            }
+        }
+
+        /* css for error */
+        div.error {
+            p {
+                font-size: 14px;
+                text-align: center;
+                color: red;
+            }
+        }
+
+    }
+
+    .input-area {
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 8px;
+        border-top: 1px solid lightgrey;
+
+
+        input {
+            height: 40px;
+            flex: 1;
+            border: none;
+            background-color: var(--grey);
+            border-radius: 20px;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+
+        button {
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            border: none;
+            margin-left: 12px;
+            background-color: var(--blue);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+            }
+
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        }
+    }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 45px;
+    aspect-ratio: 4;
+    --_g: no-repeat radial-gradient(circle closest-side, #615e5e 90%, #0000);
+    background:
+        var(--_g) 0% 50%,
+        var(--_g) 50% 50%,
+        var(--_g) 100% 50%;
+    background-size: calc(100%/3) 100%;
+    animation: l7 1s infinite linear;
+}
+
+@keyframes l7 {
+    33% {
+        background-size: calc(100%/3) 0%, calc(100%/3) 100%, calc(100%/3) 100%
+    }
+
+    50% {
+        background-size: calc(100%/3) 100%, calc(100%/3) 0%, calc(100%/3) 100%
+    }
+
+    66% {
+        background-size: calc(100%/3) 100%, calc(100%/3) 100%, calc(100%/3) 0%
+    }
+}
